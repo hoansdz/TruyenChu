@@ -1,11 +1,15 @@
-const express = require("express");
-const path = require("path");
+import express from 'express'
+
 const app = express();
-const PORT = process.env.PORT || 3000;
+const post = process.env.PORT || 3000;
 
-// phục vụ file tĩnh (html, css, js)
-app.use(express.static(path.join(__dirname, ".")));
+app.use(express.json())
 
-app.listen(PORT, () => {
-  console.log(`✅ Server running at http://localhost:${PORT}`);
+app.post('/', (req, res) => {
+  console.log(`Message from hello is ${req.body.hello}`);
+  res.json({message: 'Hello there'});
+});
+
+app.listen(post, () => {
+  console.log('Hi');
 });
