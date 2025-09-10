@@ -32,7 +32,7 @@ function init() {
     for (const story of stories) {
         addStory(grid, story);
     }
-    fetch('/', {
+    fetch('/api/hello', {
         method: 'POST',
         headers: {'Content-Type' : 'application/json'},
         body: JSON.stringify({ hello : 'Welcome'}),
