@@ -26,21 +26,33 @@ body {
     font-family: sans-serif;
 }
 
-#navigator input {
+#search {
+    display: flex;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
+    background-color: white;
     padding: 1.2vw;
+    font-family: sans-serif;
     width: 100%;
 }
 
-#navigator button {
+#search input {
+    display: flex;
+    padding: 1.2vw;
+    font-family: sans-serif;
+    background: none;
+    border: none;
+    width: 100%;
+}
+
+/* #navigator button {
     border: none;
     border-radius: 6px;
     background-image: linear-gradient(to bottom right, rgb(11, 229, 229), rgb(21, 204, 143));
     padding: 1vw;
     color: rgb(255, 255, 255);
     cursor: pointer;
-}
+} */
 
 #navigator img {
     width: 5vw;

@@ -8,11 +8,18 @@
 </head>
 
 <body>
+    <img src="images/back.png" onclick="window.location.href = 'index.html'" id="back" />
     <div id="login">
         <p class="title">Đăng nhập</p>
-        <input type="text" placeholder="Tài khoản" id="input-account" />
-        <input type="password" placeholder="Mật khẩu" id="input-password" />
-        <button id="login-button">Đăng nhập</button>
+        <div class="input-container">
+            <input type="email" placeholder="Tài khoản email" id="input-account" />
+            <span id="error-email-message"></span>
+        </div>
+        <div class="input-container">
+            <input type="password" placeholder="Mật khẩu" id="input-password" />
+            <span id="error-password-message"></span>
+        </div>
+        <button id="login-button" onclick="login()">Đăng nhập</button>
         <p>Bạn chưa có tài khoản ? <a id="go-to-register" href="register.html">Đăng ký</a></p>
     </div>
 </body>
