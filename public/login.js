@@ -16,7 +16,7 @@ function login() {
     }
     document.getElementById('error-email-message').innerHTML = emailError === undefined ? '' : emailError;
     document.getElementById('error-password-message').innerHTML = passwordError === undefined ? '' : passwordError;
-    if (emailError !== undefined || passwordError == undefined) {
+    if (emailError !== undefined || passwordError !== undefined) {
         return;
     }
     const data = {
@@ -26,7 +26,7 @@ function login() {
     fetch('/api/login', {
         method: 'POST',
         headers: {'Content-Type' : 'application/json'},
-        body: data,
+        body: JSON.stringify(data),
     })
     .then(res => res.json())
     .then(data => {
