@@ -1,0 +1,151 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+#navigator {
+    display: flex;
+    background-color: rgba(44, 42, 42, 0.879);
+    padding: 3vh 2vw;
+}
+
+#navigator ul {
+    list-style: none;
+    display: flex;
+    gap: 3vw;
+    margin: 0;
+    width: 100%;
+}
+
+#navigator li {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    color: rgb(197, 178, 178);
+    font-size: 1.1em;
+    font-family: sans-serif;
+}
+
+#navigator input {
+    border: none;
+    border-radius: 6px;
+    padding: 1.2vw;
+    width: 100%;
+}
+
+#navigator button {
+    border: none;
+    border-radius: 6px;
+    background-image: linear-gradient(to bottom right, rgb(11, 229, 229), rgb(21, 204, 143));
+    padding: 1vw;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+#navigator img {
+    width: 5vw;
+    height: auto;
+    cursor: pointer;
+}
+
+#navigator li:hover,
+#navigator img:hover {
+    color: white;
+}
+
+#navigator button:hover {
+    background-image: linear-gradient(to bottom right, rgb(21, 204, 143), rgb(11, 229, 229));
+}
+
+#login-promo {
+    padding: 2vw;
+    margin-top: 2vw;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    border-radius: 6px;
+    border: none;
+    box-shadow: 
+        2px 2px 8px gray,
+        -2px -2px 8px gray;
+}
+
+#login-promo p {
+    font-size: 1.1em;
+    font-family: sans-serif;
+}
+
+#login-promo button {
+    justify-items: center;
+    width: 100%;
+    padding: 1.5vw;
+    border-radius: 6px;
+    color: white;
+    font-size: 1.1em;
+    font-family: sans-serif;
+    cursor: pointer;
+    background-image: linear-gradient(to right, rgb(71, 183, 221), rgb(5, 255, 255));
+}
+
+#main-content {
+    margin: 3vw 4vw;
+}
+
+#filter-suggest p {
+    font-size: 1.1em;
+    font-family: sans-serif;
+    font-weight: 700;
+}
+
+#filter-suggest {
+    display: flex;
+    justify-content: space-between;
+}
+
+#suggest-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 3vw;
+}
+
+#suggest-grid div {
+    cursor: pointer;
+}
+
+#suggest-grid img {
+    width: 100%;
+    height: auto;
+}
+
+#suggest-grid p {
+    font-size: 1.05em;
+    font-family: sans-serif;
+    font-weight: 400;
+}
+
+#filter-suggest select {
+    border-radius: 6px;
+    padding: 0px 3vw;
+    appearance: none;
+    -webkit-appearance: none;
+    background: white url('https://cdn-icons-png.flaticon.com/512/25/25623.png') no-repeat right 10px center;
+    background-size: 8px;
+    cursor: pointer;
+}
+
+.empty {
+    font-size: 1.1em;
+    font-family: sans-serif;
+    font-weight: 400;
+    text-align: center;
+    padding: 12vw;
+}
+
+footer {
+    border-top: 2px solid gray;
+    width: 100%;
+}
+
+footer p {
+    font-family: sans-serif;
+    text-align: center;
+}

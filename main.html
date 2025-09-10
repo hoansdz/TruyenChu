@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Truyện chữ</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="main.css" />
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <nav id="navigator">
+        <ul>
+            <li><img src="images/icon.png" alt="icon" /></li>
+            <li>Trang chủ</li>
+            <li style="flex: 1;"><input type="text" placeholder="Nhập tên truyện" /></li>
+            <li><button>Tìm kiếm</button></li>
+            <li><img src="images/user-icon.png" alt="user-icon"></li>
+        </ul>
+    </nav>
+    <div id="login-promo">
+        <p>Bạn chưa đăng nhập vui lòng đăng nhập để có thể xem nhiều tính năng hơn</p>
+        <button onclick="window.location.href='login.html'">Đăng nhập</button>
+    </div>
+    <div id="main-content">
+        <div id="filter-suggest">
+            <p>
+                Truyện đề cử
+            </p>
+            <select>
+                <option value="all">Tất cả</option>
+                <option value="ngon-tinh">Ngôn tình</option>
+                <option value="dam-my">Đam mỹ</option>
+                <option value="hai">Hài</option>
+                <option value="kiem-hiep">Kiếm hiệp</option>
+                <option value="tu-tien">Tu tiên</option>
+            </select>
+        </div>
+        <div id="suggest-grid">
+            <p class="empty">
+                Không tìm thấy truyện
+            </p>
+        </div>
+    </div>
+    <footer>
+        <p>
+             Website đọc truyện chữ nhanh nhất, thân thiện nhất, và luôn cập nhật mới nhất
+        </p>
+        <p>
+            Liên hệ: luonghoan1862007@gmail.com
+        </p>
+    </footer>
+    <script>init()</script>
+</body>
