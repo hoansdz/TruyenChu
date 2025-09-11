@@ -29,11 +29,12 @@ function login() {
         body: JSON.stringify(data),
     })
     .then(res => res.json())
-    .then(data => {
-        let success = data.success;
-        if (!success) {
-            alert('Đã có lỗi xảy ra');
+    .then(result => {
+        if (result.state === 'fail') {
+            document.getElementById('error-password-message').innerHTML = result.err;
+            return;
         }
+        window.location.href = 'index.html';
     });
 
 }
