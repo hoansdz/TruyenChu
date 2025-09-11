@@ -1,5 +1,5 @@
 import express from 'express';
-import users from './backend/users';
+import users from './backend/public/users';
 
 const app = express();
 const post = process.env.PORT || 3000;
