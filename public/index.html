@@ -4,19 +4,24 @@
     <title>Truyện chữ</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="main.css" />
-    <script src="main.js"></script>
+    <script type="module" src="main.js"></script>
 </head>
 
 <body>
     <nav id="navigator">
+        <ul style="flex: 1;">
+            <li><img src="images/icon.png" alt="icon" id="icon" /> <img src="images/truyen_nhanh.png" alt="icon" id="truyen_nhanh" /></li>
+            <li>
+                <div id="search">
+                    <input type="text" placeholder="Nhập tên truyện" />
+                    <img id="search-icon" src="images/search.png" />
+                </div>
+            </li>
+            
+        </ul>
         <ul>
-            <li><img src="images/icon.png" alt="icon" /></li>
-            <div id="search">
-                <li style="flex: 1;"><input type="text" placeholder="Nhập tên truyện" /></li>
-                <img src="images/search.png" />
-            </div>
-
-            <li><img src="images/user-icon.png" alt="user-icon"></li>
+            <li><img src="images/bell.png" alt="notifications" id="notifications"></li>
+            <li><img src="images/user-icon.png" alt="avatar" id="avatar"></li>
         </ul>
     </nav>
     <div id="login-promo">
@@ -51,5 +56,4 @@
             Liên hệ: luonghoan1862007@gmail.com
         </p>
     </footer>
-    <script>init()</script>
 </body>

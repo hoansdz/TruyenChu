@@ -1,3 +1,5 @@
+import users from './backend/users.js';
+
 function addStory(parent, story) {
     const div = document.createElement('div');
     const img = document.createElement('img');
@@ -12,7 +14,12 @@ function addStory(parent, story) {
     parent.appendChild(div);
 }
 
-function init() {
+document.addEventListener('DOMContentLoaded', () => {
+    users(() => {
+        if (users.isSigned) {
+            document.getElementById('login-promo').style.display = 'none';
+        }
+    });
     const grid = document.getElementById('suggest-grid');
     const stories = [
         {
@@ -32,4 +39,4 @@ function init() {
     for (const story of stories) {
         addStory(grid, story);
     }
-}
+});

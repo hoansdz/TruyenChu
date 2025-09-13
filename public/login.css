@@ -40,10 +40,6 @@ html, body {
     margin-bottom: 2vw;
 }
 
-.input-container.error {
-    background-color: red;
-}
-
 #error-password-message,
 #error-email-message {
     position: absolute;

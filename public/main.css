@@ -5,8 +5,9 @@ body {
 
 #navigator {
     display: flex;
-    background-color: rgba(44, 42, 42, 0.879);
+    background-color: #5ce1e6;
     padding: 3vh 2vw;
+    justify-content: space-between;
 }
 
 #navigator ul {
@@ -14,7 +15,6 @@ body {
     display: flex;
     gap: 3vw;
     margin: 0;
-    width: 100%;
 }
 
 #navigator li {
@@ -29,20 +29,29 @@ body {
 #search {
     display: flex;
     border: none;
-    border-radius: 8px;
+    border-radius: 12px;
     background-color: white;
-    padding: 1.2vw;
+    padding: 0.6vw 10px;
     font-family: sans-serif;
-    width: 100%;
+    width: 50vw;
+    max-height: 48px;
+    max-width: 500px;
+    box-sizing: border-box;
+    align-items: center;
 }
 
 #search input {
-    display: flex;
     padding: 1.2vw;
     font-family: sans-serif;
     background: none;
-    border: none;
     width: 100%;
+    border: none;
+}
+
+#search input:focus {
+    outline: none;
+    background: none;
+    border: none;
 }
 
 /* #navigator button {
@@ -53,13 +62,33 @@ body {
     color: rgb(255, 255, 255);
     cursor: pointer;
 } */
-
-#navigator img {
+#notifications,
+#avatar {
     width: 5vw;
+    max-width: 46px;
+    height: auto;
+    cursor: pointer;
+    margin-right: 1vw;
+}
+#search img{
+    width: 3vw;
+    height: auto;
+    max-width: 24px;
+    max-height: 24px;
+    cursor: pointer;
+}
+#icon {
+    width: 8vw;
+    max-width: 128px;
     height: auto;
     cursor: pointer;
 }
-
+#truyen_nhanh {
+    height: 6vw;
+    max-height: 48px;
+    height: auto;
+    cursor: pointer;
+}
 #navigator li:hover,
 #navigator img:hover {
     color: white;
