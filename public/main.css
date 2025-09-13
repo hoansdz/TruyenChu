@@ -89,6 +89,14 @@ body {
     height: auto;
     cursor: pointer;
 }
+@media screen and (max-width: 520px) {
+    #truyen_nhanh {
+        height: 3vw;
+        max-height: 24px;
+        height: auto;
+        cursor: pointer;
+    }
+}
 #navigator li:hover,
 #navigator img:hover {
     color: white;
@@ -144,7 +152,7 @@ body {
 
 #suggest-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: 3vw;
 }
 

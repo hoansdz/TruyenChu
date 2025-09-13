@@ -1,9 +1,10 @@
 import supabase from './supabase.js';
 
-let isSignup = false;
+let isSignin = false;
 
 document.getElementById('login-button').addEventListener('click', async () => {
     try {
+        if (isSignin) return;
         const email = document.getElementById('input-account').value;
         const password = document.getElementById('input-password').value;
 
@@ -24,17 +25,20 @@ document.getElementById('login-button').addEventListener('click', async () => {
         if (emailError !== undefined || passwordError !== undefined) {
             return;
         }
-        const { data, error } = await supabase.auth.signUp({
+        isSignin = true;
+        const { error } = await supabase.auth.signInWithPassword({
             email: email,
             password: password
         });
         if (error) {
             document.getElementById('error-password-message').innerHTML = err.message;
+            signIn = false;
             return;
         }
-        setTimeout(() => {isSignup = true;}, 1000);
+        window.location.href = 'index.html';
     }
     catch (err) {
-        document.getElementById('error-password-message').innerHTML = 'Thông tin tài khoản hoặc mật khẩu không chính xác';
+        isSignin = false;
+        document.getElementById('error-password-message').innerHTML = `Thông tin tài khoản hoặc mật khẩu không chính xác ${err}`;
     }
 });
