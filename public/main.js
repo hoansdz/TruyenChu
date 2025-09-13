@@ -39,4 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     for (const story of stories) {
         addStory(grid, story);
     }
+    for (let i =0; i<20; ++i) {
+        addStory(grid, stories[0]);
+    }
 });
