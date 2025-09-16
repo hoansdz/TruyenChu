@@ -81,7 +81,8 @@ body {
 #coins {
     width: 2vw;
     max-width: 24px;
-    height: auto;
+    max-height: 24px;
+    height: 2vw;
 }
 
 #user-coins:hover,

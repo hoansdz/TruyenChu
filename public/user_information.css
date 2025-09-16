@@ -7,6 +7,15 @@ body {
     flex-direction: column;
 }
 
+#back {
+    width: 32px;
+    position: absolute;
+    padding: 4vw;
+    cursor: pointer;
+    top: 2vw;
+    left: 2vw;
+}
+
 #avatar-area {
     margin-top: 1vw;
     width: 10vw;
