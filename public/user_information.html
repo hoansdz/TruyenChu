@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Thông tin người dùng</title>
+    <link rel="stylesheet" href="user_information.css" />
+    <script type="module" src="user_information.js"></script>
+</head>
+
+<body>
+    <div id="avatar-area">
+        <img src="images/user-icon.png" id="avatar" alt="avatar" />
+        <input type="file" id="input-avatar" accept="image/*"/>
+    </div>
+    <div id="space-area">
+        <div class="input-box">
+            <p>Ngày tạo</p>
+            <div style="display: flex; align-items: center;">
+                <p id="user-created-at" style="color: #aaaaaa;"></p>
+            </div>
+        </div>
+        <div class="input-box">
+            <p>Email</p>
+            <div style="display: flex; align-items: center;">
+                <p id="user-email" style="color: #aaaaaa;"></p>
+            </div>
+        </div>
+        <div class="input-box">
+            <p>Tên người dùng</p>
+            <div style="display: flex; align-items: center;">
+                <p id="user-name" style="color: #aaaaaa;"></p>
+                <img src="images/right.png" />
+            </div>
+        </div>
+    </div>
+</body>

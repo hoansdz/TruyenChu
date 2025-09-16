@@ -1,3 +1,4 @@
+import supabase from './supabase.js';
 import users from './backend/users.js';
 
 function addStory(parent, story) {
@@ -15,10 +16,16 @@ function addStory(parent, story) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    users(() => {
-        if (users.isSigned) {
-            document.getElementById('login-promo').style.display = 'none';
+    users(async () => {
+        if (!users.isSigned) {
+            document.getElementById('login-promo').style.display = 'block';
+            return;
         }
+        const { data: {userData}, error } = await supabase.functions.invoke('getPrivateData', {
+            body: {  },
+        });
+        console.log(userData);
+        document.getElementById('user-coins').innerHTML = userData.coins ?? 0;
     });
     const grid = document.getElementById('suggest-grid');
     const stories = [
