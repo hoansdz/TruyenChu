@@ -13,9 +13,14 @@ function addStory(parent, story) {
     div.appendChild(title);
     div.appendChild(evaluate);
     parent.appendChild(div);
+    div.addEventListener('click', () => {
+
+    });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    const avatar = document.getElementById('avatar');
+    const optionsDropbox = document.getElementById('options-dropbox');
     users(async () => {
         if (!users.isSigned) {
             document.getElementById('login-promo').style.display = 'block';
@@ -26,6 +31,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         console.log(userData);
         document.getElementById('user-coins').innerHTML = userData.coins ?? 0;
+        if (users.data.avatar_url) {
+            avatar.src = users.data.avatar_url + `?t=${Date.now()}`;
+        }
+    });
+    avatar.addEventListener('click', () => {
+        optionsDropbox.style.display = optionsDropbox.style.display === 'none' ? 'block' : 'none';
     });
     const grid = document.getElementById('suggest-grid');
     const stories = [

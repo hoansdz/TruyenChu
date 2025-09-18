@@ -1,0 +1,32 @@
+const storyCategory = {
+  0: "Hành động",
+  1: "Phiêu lưu",
+  2: "Huyền ảo",
+  3: "Ngôn tình",
+  4: "Hài hước",
+  5: "Drama / Bi kịch",
+  6: "Đời thường",
+  7: "Kinh dị",
+  8: "Siêu nhiên",
+  9: "Trinh thám / Bí ẩn",
+  10: "Giật gân",
+  11: "Khoa học viễn tưởng",
+  12: "Lịch sử",
+  13: "Võ hiệp",
+  14: "Thể thao",
+  15: "Âm nhạc",
+  16: "Học đường",
+  17: "Harem",
+  18: "Người máy",
+  19: "Trò chơi",
+  20: "Tâm lý",
+  21: "Ma thuật",
+  22: "Ma quỷ",
+  23: "Quân sự",
+  24: "Xuyên không",
+  25: "Tu tiên / Tiên hiệp",
+  26: "Hệ thống",
+  27: "Cổ tích / Dân gian"
+};
+
+export default storyCategory;

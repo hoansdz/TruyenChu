@@ -71,11 +71,51 @@ body {
     cursor: pointer;
     margin-right: 1vw;
 }
+
+#avatar {
+    border-radius: 50%;
+}
+
+#options-dropbox {
+    border: 1px solid #aaaaaa;
+    border-radius: 8px;
+    position: absolute;
+    right: 10px;
+    background-color: #fff;
+    margin-top: 6vw;
+    padding: 1vw 1vw;
+    display: none;
+    cursor: pointer;
+}
+
+.item-options-dropbox {
+    display: flex;
+    align-items: center;
+    padding: 0px 1vw;
+}
+
+.item-options-dropbox:hover {
+    border-radius: 8px;
+    background-color: #aaa;
+}
+
+.item-options-dropbox img {
+    width: 2vw;
+    height: 2vw;
+    max-width: 16px;
+    max-height: 16px;
+}
+
+.item-options-dropbox p {
+    font-family: sans-serif;
+    margin-left: 12px;
+}
+
 #search img{
     width: 3vw;
     height: auto;
-    max-width: 24px;
-    max-height: 24px;
+    max-width: 16px;
+    max-height: 16px;
     cursor: pointer;
 }
 #coins {

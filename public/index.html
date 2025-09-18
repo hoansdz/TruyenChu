@@ -25,9 +25,20 @@
                 <img src="images/coin.png" alt="coins" id="coins">
             </li>
             <li><img src="images/bell.png" alt="notifications" id="notifications"></li>
-            <li><img src="images/user-icon.png" alt="avatar" id="avatar" onclick="window.location.href = 'user_information.html'"></li>
+            <li><img src="images/user-icon.png" alt="avatar" id="avatar"></li>
         </ul>
+        <div id="options-dropbox">
+            <div id="my-account" class="item-options-dropbox" onclick="window.location.href = 'user_information.html'">
+                <img src="images/user.png" />
+                <p>Tài khoản của tôi</p>
+            </div>
+            <div id="create-story" class="item-options-dropbox" onclick="window.location.href = 'create_story.html'">
+                <img src="images/pencil.png" />
+                <p>Thêm truyện mới</p>
+            </div>
+        </div>
     </nav>
+    
     <div id="login-promo">
         <p>Bạn chưa đăng nhập vui lòng đăng nhập để có thể xem nhiều tính năng hơn</p>
         <button onclick="window.location.href='login.html'">Đăng nhập</button>
