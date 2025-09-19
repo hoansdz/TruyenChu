@@ -6,15 +6,15 @@ function addStory(parent, story) {
     const img = document.createElement('img');
     const title = document.createElement('p');
     const evaluate = document.createElement('p');
-    title.innerHTML = story.title;
-    img.src = story.image;
-    evaluate.innerHTML = `⭐ ${story.star} / 10`;
+    title.textContent = story.name;
+    img.src = story.image_url;
+    evaluate.textContent = `⭐ ${story.average_star} / 10`;
     div.appendChild(img);
     div.appendChild(title);
     div.appendChild(evaluate);
     parent.appendChild(div);
     div.addEventListener('click', () => {
-
+        window.location.href = `read_story.html?id=${story.id}`;
     });
 }
 
@@ -26,38 +26,29 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('login-promo').style.display = 'block';
             return;
         }
-        const { data: {userData}, error } = await supabase.functions.invoke('getPrivateData', {
-            body: {  },
+        const { data: { userData }, error } = await supabase.functions.invoke('getPrivateData', {
+            body: {},
         });
-        console.log(userData);
-        document.getElementById('user-coins').innerHTML = userData.coins ?? 0;
+        document.getElementById('user-coins').textContent = userData.coins ?? 0;
         if (users.data.avatar_url) {
             avatar.src = users.data.avatar_url + `?t=${Date.now()}`;
         }
+        const grid = document.getElementById('suggest-grid');
+        const { data: {stories}, error: getStoriesError} = await supabase.functions.invoke('getStories', {
+            body: {
+                offset: 0,
+                limit: 20
+            }
+        });
+        if (getStoriesError) {
+            return;
+        }
+        for (const story of stories) {
+            addStory(grid, story);
+        }
+        document.getElementById('empty').style.display = 'none';
     });
     avatar.addEventListener('click', () => {
         optionsDropbox.style.display = optionsDropbox.style.display === 'none' ? 'block' : 'none';
     });
-    const grid = document.getElementById('suggest-grid');
-    const stories = [
-        {
-            image: 'images/i1.jpg',
-            title: 'Nhất thế phi thiên',
-            star: 8,
-        }, 
-        {
-            image: 'images/i2.jpg',
-            title: 'Vợ Nhỏ Yêu Nghiệt Của Âu Thiếu - Đàm Tiểu Ân',
-            star: 9,
-        }
-    ];
-    if (stories.length) {
-        grid.getElementsByClassName('empty')[0].style.display = 'none';
-    }
-    for (const story of stories) {
-        addStory(grid, story);
-    }
-    for (let i =0; i<20; ++i) {
-        addStory(grid, stories[0]);
-    }
 });

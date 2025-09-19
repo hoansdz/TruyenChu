@@ -10,34 +10,43 @@
 <body>
     <img src="images/back.png" alt="back" id="back" onclick="window.location.href = 'index.html'" />
     <div id="page">
-        <div style="display: flex;">
-            <div style="display: flex; width: 100%;">
-                <div id="image-box">
-                    <img src="images/camera.png" alt="pick image" id="image" />
-                    <input type="file" accept="image/*" id="input-image"/>
-                </div>
-                <div id="form-box">
-                    <input type="text" placeholder="Tên truyện" id="input-name" autocomplete="off"></input>
-                    <textarea placeholder="Mô tả truyện" id="input-decription" autocomplete="off"></textarea>
+        <div>
+            <div style="display: flex;">
+                <div style="display: flex; width: 100%;">
+                    <div id="image-box">
+                        <img src="images/camera.png" alt="pick image" id="image" />
+                        <input type="file" accept="image/*" id="input-image" />
+                    </div>
+                    <div id="form-box">
+                        <input type="text" placeholder="Tên truyện" id="input-name" autocomplete="off"></input>
+                        <p class="error" id="name-error"></p>
+                        <textarea placeholder="Mô tả truyện" id="input-decription" autocomplete="off"></textarea>
+                    </div>
                 </div>
             </div>
+            <p class="error" id="image-error"></p>
         </div>
+
         <input type="text" placeholder="Tên tác giả" id="input-author-name" />
-        <div id="select-category-dropbox">
-            <div id="selecting-category">
-                <div id="selecting-category-box">
+        <div>
+            <div id="select-category-dropbox">
+                <div id="selecting-category">
+                    <div id="selecting-category-box">
+                    </div>
+                    <div id="selecting-category-select">
+                        <input id="search-category" placeholder="Thể loại" autocomplete="off" />
+                        <img src="images/right.png" id="open-dropbox" />
+                    </div>
                 </div>
-                <div id="selecting-category-select">
-                    <input id="search-category" placeholder="Thể loại" autocomplete="off" />
-                    <img src="images/right.png" id="open-dropbox" />
+                <div id="select-category-menu">
+                    <p id="select-category-menu-hint">
+                        Chọn ít nhất một thể loại
+                    </p>
                 </div>
             </div>
-            <div id="select-category-menu">
-                <p id="select-category-menu-hint">
-                    Chọn ít nhất một thể loại
-                </p>
-            </div>
+            <p class="error" id="category-error"></p>
         </div>
+
         <button id="create-story">
             Tạo
         </button>

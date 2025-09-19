@@ -10,14 +10,15 @@
 <body>
     <nav id="navigator">
         <ul style="flex: 1;">
-            <li><img src="images/icon.png" alt="icon" id="icon" /> <img src="images/truyen_nhanh.png" alt="icon" id="truyen_nhanh" /></li>
+            <li><img src="images/icon.png" alt="icon" id="icon" /> <img src="images/truyen_nhanh.png" alt="icon"
+                    id="truyen_nhanh" /></li>
             <li>
                 <div id="search">
                     <input type="text" placeholder="Nhập tên truyện" />
                     <img id="search-icon" src="images/search.png" />
                 </div>
             </li>
-            
+
         </ul>
         <ul>
             <li>
@@ -38,7 +39,7 @@
             </div>
         </div>
     </nav>
-    
+
     <div id="login-promo">
         <p>Bạn chưa đăng nhập vui lòng đăng nhập để có thể xem nhiều tính năng hơn</p>
         <button onclick="window.location.href='login.html'">Đăng nhập</button>
@@ -57,8 +58,9 @@
                 <option value="tu-tien">Tu tiên</option>
             </select>
         </div>
-        <div id="suggest-grid">
-            <p class="empty">
+        <div>
+            <div id="suggest-grid"></div>
+            <p id="empty">
                 Không tìm thấy truyện
             </p>
         </div>

@@ -20,7 +20,7 @@ async function users(callback) {
         users.data = userData;
         users.email = user.email;
         users.session = session.access_token;
-        console.log(session);
+        console.log(users.data);
         callback();
     }
     catch (e) {
