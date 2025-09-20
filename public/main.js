@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 limit: 20
             }
         });
-        if (getStoriesError) {
+        if (getStoriesError || !stories.length) {
             return;
         }
         for (const story of stories) {

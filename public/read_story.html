@@ -1,28 +1,40 @@
 <!DOCTYPE html>
+
 <head>
     <title>Truyện chữ</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="read_story.css" />
     <script type="module" src="./read_story.js"></script>
 </head>
+
 <body>
     <img src="images/back.png" onclick="window.location.href = 'index.html'" id="back" />
     <div id="story-area">
         <div id="information-area">
-            <img src="images/truyen_nhanh.png" alt="image" id="image"/>
+            <img src="images/truyen_nhanh.png" alt="image" id="image" />
             <div id="text-information-area">
                 <p id="story-name">Tên</p>
                 <div id="generic-information">
                     <p class="medium-text">Ngày đăng tải:</p>
                     <p id="story-created-at">Đang tải</p>
+                </div>
+                <div id="generic-information">
                     <p class="medium-text">Cập nhật:</p>
                     <p id="story-last-update">Đang tải</p>
+                </div>
+                <div id="generic-information">
                     <p class="medium-text">Tên tác giả:</p>
                     <p id="story-author-name">Đang tải</p>
+                </div>
+                <div id="generic-information">
                     <p class="medium-text">Người đăng tải:</p>
                     <p id="story-update-by">Đang tải</p>
+                </div>
+                <div id="generic-information">
                     <p class="medium-text">Thể loại</p>
-                    <p id="story-category">Đang tải</p>
+                    <div id="list-category">
+
+                    </div>
                 </div>
             </div>
         </div>
@@ -32,6 +44,8 @@
         <div id="chapter-area">
             <p class="large-text">Chương</p>
             <p class="large-text">Ngày cập nhật</p>
+            <p class="">Chưa có</p>
+            <p class="">Chưa có</p>
         </div>
     </div>
 </body>

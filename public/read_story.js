@@ -1,5 +1,6 @@
 import users from "./backend/users.js";
 import supabase from "./supabase.js";
+import storyCategory from "./backend/story_category.js"
 
 function isoStringToReadableString(isoString) {
     return new Date(isoString).toLocaleString('vi-VN', {
@@ -27,6 +28,14 @@ function timeAgo(date) {
   }
 }
 
+function addStoryCategory(parent, categoryId) {
+  const categoryString = storyCategory[categoryId];
+  const p = document.createElement('p');
+  const listCategory = document.getElementById('list-category');
+  p.textContent = categoryString;
+  listCategory.appendChild(p);
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
     const params = new URLSearchParams(window.location.search);
     const id = params.get('id');
@@ -35,19 +44,23 @@ document.addEventListener('DOMContentLoaded', async () => {
             id: id
         }
     });
+    const image = document.getElementById('image');
     const name = document.getElementById('story-name');
     const description = document.getElementById('story-decription');
     const createdAt = document.getElementById('story-created-at');
     const authorName = document.getElementById('story-author-name');
     const lastUpdate = document.getElementById('story-last-update');
     const uploadBy = document.getElementById('story-update-by');
-    const category = document.getElementById('story-category');
+    const category = document.getElementById('list-category');
     console.log(story);
+    image.src = `${story.image_url}?t=${Date.now()}`
     name.textContent = story.name;
     description.textContent = story.description;
     createdAt.textContent = isoStringToReadableString(story.created_at);
     authorName.textContent = story.author_name;
     lastUpdate.textContent = timeAgo(new Date(story.last_update));
     uploadBy.textContent = 'Đố biết đấy!';
-    category.textContent = 'Đố biết đấy!';
+    for (const storyId of story.story_category) {
+      addStoryCategory(category, storyId);
+    }
 });

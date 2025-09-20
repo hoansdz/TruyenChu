@@ -40,7 +40,7 @@ body {
 #image {
     width: 30%;
     aspect-ratio: 9 / 16;
-    object-fit: contain;
+    object-fit: cover;
     border: 1px solid #aaa;
     border-radius: 8px;
 }
@@ -48,7 +48,7 @@ body {
 #generic-information {
     display: grid;
     gap: 4px 8x;
-    grid-template-columns: auto auto;
+    grid-template-columns: 180px auto;
 }
 
 #story-name {
@@ -67,6 +67,19 @@ body {
     font-family: sans-serif;
     font-size: 1.1rem;
     font-weight: 600;
+}
+
+#list-category {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0px 12px;
+}
+
+#list-category p {
+    text-align: center;
+    padding: 10px 16px;
+    background-color: rgb(42, 255, 255);
+    border-radius: 8px;
 }
 
 #story-decription {
