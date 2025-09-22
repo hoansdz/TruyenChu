@@ -31,9 +31,8 @@ function timeAgo(date) {
 function addStoryCategory(parent, categoryId) {
   const categoryString = storyCategory[categoryId];
   const p = document.createElement('p');
-  const listCategory = document.getElementById('list-category');
   p.textContent = categoryString;
-  listCategory.appendChild(p);
+  parent.appendChild(p);
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -43,6 +42,39 @@ document.addEventListener('DOMContentLoaded', async () => {
         body: {
             id: id
         }
+    });
+    supabase.functions.invoke('getUserInformation', {
+      body: {
+        userId: story.upload_by
+      }
+    }).then(({data: {userData}, error}) => {
+      uploadBy.textContent = userData.name;
+    });
+    supabase.functions.invoke('getChapters', {
+      body: {
+        story_id: id,
+        offset: 0,
+        limit: 10
+      }
+    }).then(({data: {chapters}, state}) => {
+      if (state === 'fail' || chapters.length === 0) {
+        return;
+      }
+      const chapterArea = document.getElementById('chapter-area');
+      for (const element of document.getElementsByClassName('none')) {
+        element.style.display = 'none';
+      }
+      chapters.forEach((chapter) => {
+        const p1 = document.createElement('p');
+        const p2 = document.createElement('p');
+        p1.textContent = `${chapter.id}. ${chapter.title}`;
+        p2.textContent = isoStringToReadableString(chapter.created_at);
+        p1.addEventListener('click', () => {
+          window.location.href = `read_chapter.html?id=${id}&chapter=${chapter.index}`
+        });
+        chapterArea.appendChild(p1);
+        chapterArea.appendChild(p2);
+      });
     });
     const image = document.getElementById('image');
     const name = document.getElementById('story-name');
@@ -55,11 +87,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.log(story);
     image.src = `${story.image_url}?t=${Date.now()}`
     name.textContent = story.name;
-    description.textContent = story.description;
+    description.innerText = story.description;
     createdAt.textContent = isoStringToReadableString(story.created_at);
     authorName.textContent = story.author_name;
     lastUpdate.textContent = timeAgo(new Date(story.last_update));
-    uploadBy.textContent = 'Đố biết đấy!';
     for (const storyId of story.story_category) {
       addStoryCategory(category, storyId);
     }

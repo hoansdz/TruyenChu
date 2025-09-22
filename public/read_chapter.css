@@ -1,0 +1,57 @@
+body {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#back {
+    width: 32px;
+    position: absolute;
+    top: 2vw;
+    left: 2vw;
+    cursor: pointer;
+}
+
+#chapter-area {
+    width: 80%;
+    margin-top: 8vw;
+    border: 1px solid #aaa;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    padding: 2vw 6vw;
+    box-sizing: border-box;
+    margin-bottom: 4vw;
+}
+
+#story-name {
+    text-align: center;
+    font-size: 1.1rem;
+    font-family: sans-serif;
+    font-weight: 700;
+}
+
+#change-chapter-area {
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+}
+
+#after,
+#before {
+    padding: 1vw 2vw;
+    border-radius: 8px;
+    border: 1px solid #aaa;
+    background-color: rgb(42, 255, 255);
+    cursor: pointer;
+}
+
+#now {
+    flex: 1;
+    padding: 1vw 2vw;
+    border-radius: 8px;
+    border: 1px solid #aaa;
+}

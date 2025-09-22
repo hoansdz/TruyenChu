@@ -18,7 +18,7 @@ function addStory(parent, story) {
     });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     const avatar = document.getElementById('avatar');
     const optionsDropbox = document.getElementById('options-dropbox');
     users(async () => {
@@ -33,21 +33,21 @@ document.addEventListener('DOMContentLoaded', () => {
         if (users.data.avatar_url) {
             avatar.src = users.data.avatar_url + `?t=${Date.now()}`;
         }
-        const grid = document.getElementById('suggest-grid');
-        const { data: {stories}, error: getStoriesError} = await supabase.functions.invoke('getStories', {
-            body: {
-                offset: 0,
-                limit: 20
-            }
-        });
-        if (getStoriesError || !stories.length) {
-            return;
-        }
-        for (const story of stories) {
-            addStory(grid, story);
-        }
-        document.getElementById('empty').style.display = 'none';
     });
+    const grid = document.getElementById('suggest-grid');
+    const { data: { stories }, error: getStoriesError } = await supabase.functions.invoke('getStories', {
+        body: {
+            offset: 0,
+            limit: 20
+        }
+    });
+    if (getStoriesError || !stories.length) {
+        return;
+    }
+    for (const story of stories) {
+        addStory(grid, story);
+    }
+    document.getElementById('empty').style.display = 'none';
     avatar.addEventListener('click', () => {
         optionsDropbox.style.display = optionsDropbox.style.display === 'none' ? 'block' : 'none';
     });
