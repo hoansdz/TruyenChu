@@ -111,7 +111,7 @@ async function onPageLoaded() {
 
     window.appState.users(() => {
         if (!window.appState.users.isSigned) {
-            window.location.href = 'login.html';
+            window.appState.onNewPage('home');
             return;
         }
         inputAuthorName.value = window.appState.users.data.name;
@@ -150,7 +150,7 @@ async function onPageLoaded() {
                 alert(message);
                 return;
             }
-            window.location.href = 'index.html';
+            window.appState.onNewPage('home');
         });
     });
 

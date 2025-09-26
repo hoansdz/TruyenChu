@@ -83,7 +83,7 @@ async function onPageLoaded() {
     const userEmail = document.getElementById('user-email');
     window.appState.users(async () => {
         if (!window.appState.users.isSigned) {
-            window.location.href = 'login.html';
+            window.appState.onNewPage('home');
             return;
         }
         if (window.appState.users.data.created_at !== window.appState.users.cache.created_at) {
@@ -116,7 +116,7 @@ async function onPageLoaded() {
         });
     }, (cache) => {
         if (!window.appState.users.isSigned) {
-            window.location.href = 'login.html';
+            window.appState.onNewPage('home');
             return;
         }
         userCreatedAt.textContent = isoStringToReadableString(cache.created_at);
@@ -158,8 +158,9 @@ async function onPageLoaded() {
     logout.addEventListener('click', async () => {
         if (isLogoutClicked) return;
         isLogoutClicked = true;
+        localStorage.removeItem('users');
         await supabase.auth.signOut();
-        window.location.href = 'index.html';
+        window.appState.onNewPage('home');
     });
 }
 
