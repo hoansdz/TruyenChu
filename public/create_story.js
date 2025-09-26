@@ -1,5 +1,4 @@
 import storyCategory from "./backend/story_category.js";
-import users from "./backend/users.js";
 
 const selectingCategory = new Set();
 let selectingImage;
@@ -53,11 +52,11 @@ function addCategory(parent, selectingCategoryBox, categoryId, categoryName) {
 }
 
 function loadDropbox() {
-    const selectingDropbox = document.getElementById('selecting-category');
-    const searchDropbox = document.getElementById('search-category');
-    const categoryDropboxMenu = document.getElementById('select-category-menu');
-    const openDropbox = document.getElementById('open-dropbox');
-    const selectingCategoryBox = document.getElementById('selecting-category-box');
+    const selectingDropbox = document.getElementById('ct-selecting-category');
+    const searchDropbox = document.getElementById('ct-search-category');
+    const categoryDropboxMenu = document.getElementById('ct-select-category-menu');
+    const openDropbox = document.getElementById('ct-open-dropbox');
+    const selectingCategoryBox = document.getElementById('ct-selecting-category-box');
     for (const [categoryId, categoryName] of Object.entries(storyCategory)) {
         addCategorySelecting(selectingCategoryBox, categoryId, categoryName);
         addCategory(categoryDropboxMenu, selectingCategoryBox, categoryId, categoryName);
@@ -98,23 +97,24 @@ function loadDropbox() {
     });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const inputName = document.getElementById('input-name');
-    const nameError = document.getElementById('name-error');
-    const inputDescription = document.getElementById('input-decription');
-    const image = document.getElementById('image');
-    const imageBox = document.getElementById('image-box');
-    const inputImage = document.getElementById('input-image');
-    const imageError = document.getElementById('image-error');
-    const inputAuthorName = document.getElementById('input-author-name');
-    const categoryError = document.getElementById('category-error');
-    const createStory = document.getElementById('create-story');
-    users(() => {
-        if (!users.isSigned) {
+async function onPageLoaded() {
+    const inputName = document.getElementById('ct-input-name');
+    const nameError = document.getElementById('ct-name-error');
+    const inputDescription = document.getElementById('ct-input-decription');
+    const image = document.getElementById('ct-image');
+    const imageBox = document.getElementById('ct-image-box');
+    const inputImage = document.getElementById('ct-input-image');
+    const imageError = document.getElementById('ct-image-error');
+    const inputAuthorName = document.getElementById('ct-input-author-name');
+    const categoryError = document.getElementById('ct-category-error');
+    const createStory = document.getElementById('ct-create-story');
+
+    window.appState.users(() => {
+        if (!window.appState.users.isSigned) {
             window.location.href = 'login.html';
             return;
         }
-        inputAuthorName.value = users.data.name;
+        inputAuthorName.value = window.appState.users.data.name;
         createStory.addEventListener('click', async () => {
             let nameErrorMessage = '';
             if (inputName.value.length == 0) {
@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }));
             const res = await fetch('https://cjjyrcdasvkchicimbjv.supabase.co/functions/v1/createStory', {
                 method: 'POST',
-                headers: { Authorization: `Bearer ${users.session}` },
+                headers: { Authorization: `Bearer ${window.appState.users.data.session}` },
                 body: formData,
             });
             const { state, message } = await res.json();
@@ -153,7 +153,9 @@ document.addEventListener('DOMContentLoaded', () => {
             window.location.href = 'index.html';
         });
     });
+
     loadDropbox();
+
     inputImage.addEventListener('change', (e) => {
         const file = e.target.files[0];
         if (!file) return;
@@ -164,4 +166,6 @@ document.addEventListener('DOMContentLoaded', () => {
         imageBox.style.backgroundSize = 'cover';
         imageBox.style.backgroundPosition = 'center';
     });
-});
+}
+
+export default onPageLoaded;

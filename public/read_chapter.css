@@ -1,23 +1,5 @@
-body {
-    padding: 0;
-    margin: 0;
+#rct-chapter-content {
     width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-#back {
-    width: 32px;
-    position: absolute;
-    top: 2vw;
-    left: 2vw;
-    cursor: pointer;
-}
-
-#chapter-area {
-    width: 80%;
-    margin-top: 8vw;
     border: 1px solid #aaa;
     border-radius: 12px;
     display: flex;
@@ -27,21 +9,21 @@ body {
     margin-bottom: 4vw;
 }
 
-#story-name {
+#rct-story-name {
     text-align: center;
     font-size: 1.1rem;
     font-family: sans-serif;
     font-weight: 700;
 }
 
-#change-chapter-area {
+#rct-change-chapter-area {
     display: flex;
     align-items: center;
     gap: 1vw;
 }
 
-#after,
-#before {
+#rct-after,
+#rct-before {
     padding: 1vw 2vw;
     border-radius: 8px;
     border: 1px solid #aaa;
@@ -49,7 +31,7 @@ body {
     cursor: pointer;
 }
 
-#now {
+#rct-now {
     flex: 1;
     padding: 1vw 2vw;
     border-radius: 8px;

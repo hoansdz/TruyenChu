@@ -10,3 +10,27 @@
     font-family: sans-serif;
     font-weight: 600;
 }
+
+.normal-text {
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+}
+
+.center-normal-bold {
+    text-align: center;
+    font-size: 1.1rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+
+.center-large-bold {
+    text-align: center;
+    font-size: 1.4rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+
+.small-icon {
+    width: clamp(18px, 8vw, 1.2vw);
+}

@@ -1,4 +1,3 @@
-import users from "./backend/users.js";
 import supabase from "./supabase.js";
 import storyCategory from "./backend/story_category.js"
 
@@ -35,14 +34,9 @@ function addStoryCategory(parent, categoryId) {
   parent.appendChild(p);
 }
 
-document.addEventListener('DOMContentLoaded', async () => {
-    const params = new URLSearchParams(window.location.search);
-    const id = params.get('id');
-    const {data: {story}} = await supabase.functions.invoke('getStory', {
-        body: {
-            id: id
-        }
-    });
+async function onPageLoaded() {
+    const storyData = localStorage.getItem('loading_story');
+    const story = JSON.parse(storyData);
     supabase.functions.invoke('getUserInformation', {
       body: {
         userId: story.upload_by
@@ -52,7 +46,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
     supabase.functions.invoke('getChapters', {
       body: {
-        story_id: id,
+        story_id: story.id,
         offset: 0,
         limit: 10
       }
@@ -70,7 +64,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         p1.textContent = `${chapter.id}. ${chapter.title}`;
         p2.textContent = isoStringToReadableString(chapter.created_at);
         p1.addEventListener('click', () => {
-          window.location.href = `read_chapter.html?id=${id}&chapter=${chapter.index}`
+          localStorage.setItem('loading_chapter', JSON.stringify({
+            storyId: story.id,
+            chapterId: chapter.index
+          }));
+          window.appState.onNewPage('read-chapter');
         });
         chapterArea.appendChild(p1);
         chapterArea.appendChild(p2);
@@ -94,4 +92,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     for (const storyId of story.story_category) {
       addStoryCategory(category, storyId);
     }
-});
+}
+
+export default onPageLoaded;

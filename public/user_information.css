@@ -1,21 +1,15 @@
-html {
+#user-information-content {
     width: 100%;
-    height: 100%;
-}
-
-body {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 2vw 5vw;
+    border: 1px solid #aaa;
+    border-radius: 12px;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    padding: 2vw 6vw;
     box-sizing: border-box;
+    align-items: center;
 }
 
-#story-option-menu {
+#user-information-content #story-option-menu {
     padding: 2px 16px;
     border-radius: 6px;
     border: 1px solid #aaa;
@@ -25,7 +19,7 @@ body {
     flex-direction: column;
 }
 
-.story-option {
+#user-information-content .story-option {
     display: flex;
     gap: 8px;
     width: 100%;
@@ -33,18 +27,18 @@ body {
     align-items: center;
 }
 
-.story-option img {
+#user-information-content .story-option img {
     width: 1vw;
     max-width: 12px;
     height: 1vw;
     max-height: 12px;
 }
 
-.story-option p {
+#user-information-content .story-option p {
     color: #676767;
 }
 
-#add-chapter-menu {
+#user-information-content #add-chapter-menu {
     position: fixed;
     width: 100%;
     height: 100%;
@@ -55,7 +49,7 @@ body {
     align-items: center;
 }
 
-#chapter-menu-content {
+#user-information-content #chapter-menu-content {
     padding: 2vw 4vw;
     border-radius: 12px;
     background-color: #aaa;
@@ -67,7 +61,7 @@ body {
     height: 60vh;
 }
 
-#chapter-title {
+#user-information-content #chapter-title {
     padding: 1vw 2vw;
     border-radius: 8px;
     border: 1px solid #aaa;
@@ -75,7 +69,7 @@ body {
     width: 40vw;
 }
 
-#chapter-text-content {
+#user-information-content #chapter-text-content {
     padding: 1vw 2vw;
     border-radius: 8px;
     border: 1px solid #aaa;
@@ -83,20 +77,20 @@ body {
     flex: 1;
 }
 
-#chapter-menu-cancel,
-#chapter-menu-add {
+#user-information-content #chapter-menu-cancel,
+#user-information-content #chapter-menu-add {
     padding: 1vw 2vw;
     border-radius: 8px;
     border: 1px solid #aaa;
     cursor: pointer;
 }
 
-#chapter-menu-add {
+#user-information-content #chapter-menu-add {
     background: linear-gradient(to right, #39e1e9, #9ce4f8);
     color: black;
 }
 
-#back {
+#user-information-content #back {
     width: 32px;
     position: absolute;
     cursor: pointer;
@@ -104,7 +98,7 @@ body {
     left: 2vw;
 }
 
-#avatar-area {
+#user-information-content #avatar-area {
     margin-top: 1vw;
     width: 10vw;
     height: 10vw;
@@ -115,14 +109,14 @@ body {
     cursor: pointer;
 }
 
-#avatar {
+#user-information-content #user-avatar {
     width: 100%;
     height: 100%;
     position: absolute;
     object-fit: cover;
 }
 
-#input-avatar {
+#user-information-content #input-avatar {
     width: 100%;
     top: 0px;
     left: 0px;
@@ -132,34 +126,34 @@ body {
     cursor: pointer;
 }
 
-#space-area {
+#user-information-content #space-area {
     margin-top: 1vw;
     border-radius: 12px;
-    box-shadow: 10px 10px 5px 5px #aaaaaa;
+    box-shadow: 4px 4px 2px 2px rgb(16, 16, 16, 0.1);
     flex-direction: column;
     padding: 2vw;
     width: 100%;
     border: 1px solid #aaaaaa;
 }
 
-.input-box {
+#user-information-content .input-box {
     display: flex;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
 }
 
-.input-box img {
+#user-information-content .input-box img {
     width: 2vw;
     height: 2vw;
 }
 
-.input-box p {
+#user-information-content .input-box p {
     font-family: sans-serif;
     font-size: 1.1em;
 }
 
-#empty-story {
+#user-information-content #empty-story {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -168,28 +162,37 @@ body {
     font-family: sans-serif;
 }
 
-.story {
+#user-information-content .story {
     display: flex;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
 }
 
-.story input {
+#user-information-content .story input {
     transform: scale(1.5);
 }
 
-.story p {
+#user-information-content .story p {
     font-family: sans-serif;
     font-size: 1.1rem;
 }
 
-.story div {
+#user-information-content .story div {
     display: flex;
     gap: 8px;
 }
 
-.story img {
+#user-information-content .story img {
     width: 2vw;
     max-width: 24px;
+}
+
+#user-information-content #logout {
+    padding: 1.2vw 0px;
+    width: 100%;
+    border-radius: 8px;
+    border: none;
+    background-color: #39e1e9;
+    cursor: pointer;
 }

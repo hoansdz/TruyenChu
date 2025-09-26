@@ -1,0 +1,264 @@
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#login-dialog {
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+}
+
+#navigator {
+    display: flex;
+    width: 100%;
+    background-color: #5ce1e6;
+    padding: clamp(8px, 0.4vw, 0.8vw) clamp(12px, 0.6vw, 1vw);
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+#navigator ul {
+    list-style: none;
+    display: flex;
+    gap: clamp(8px, 0.4vw, 0.8vw) clamp(12px, 0.6vw, 1vw);
+    margin: 0;
+}
+
+#navigator li {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    color: rgb(197, 178, 178);
+    font-size: 0.9rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+#search {
+    display: flex;
+    border: none;
+    border-radius: 12px;
+    background-color: white;
+    padding: 0.6vw 10px;
+    font-family: sans-serif;
+    max-height: 48px;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+#search-input {
+    padding: 1.2vw;
+    font-family: sans-serif;
+    background: none;
+    width: 100%;
+    border: none;
+}
+
+#search-input:focus {
+    outline: none;
+    background: none;
+    border: none;
+}
+
+#search img{
+    width: 3vw;
+    height: auto;
+    max-width: 16px;
+    max-height: 16px;
+    cursor: pointer;
+}
+
+#search-category {
+    display: flex;
+    flex-direction: column;
+    padding: 4px clamp(8px, 0.8vw, 1vw);
+    gap: 6px;
+    position: relative;
+}
+
+#search-category-area {
+    display: flex;
+    align-items: center;
+    padding: 0px clamp(8px, 0.8vw, 1vw);
+    gap: 4px;
+}
+
+#search-category-text {
+    color: black;
+}
+
+#search-category:hover {
+    background-color: aquamarine;
+    border-radius: 12px;
+}
+
+#search-category-icon {
+    rotate: 90deg;
+    transition: transform 0.5s ease;
+}
+
+#search-category:hover #search-category-icon {
+    transform: rotate(180deg);
+}
+
+#search-category:hover #search-category-dropbox-area {
+    display: block;
+}
+
+#search-category-dropbox-area {
+    display: none;
+    column-count: 3;
+    position: absolute;
+    background-color: aquamarine;
+    border-radius: 8px;
+    border: 1px solid #aaa;
+    padding: clamp(16px, 2vw, 4vw);
+    top: 100%;
+    left: -100%;
+    z-index: 1;
+}
+
+#search-category-dropbox-area p {
+    width: 15vw;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9rem;
+    color: #000;
+    cursor: pointer;
+}
+
+#search-category-dropbox-area p:hover {
+    color: white;
+}
+
+#web-icon {
+    width: clamp(48px, 5vw, 6vw);
+    height: auto;
+    cursor: pointer;
+}
+
+#notifications {
+    width: clamp(16px, 2vw, 4vw);
+    height: auto;
+    cursor: pointer;
+    margin-right: clamp(14px, 0.8vw, 1vw);
+}
+
+#avatar {
+    width: clamp(16px, 2vw, 4vw);
+    height: auto;
+    cursor: pointer;
+}
+
+#avatar-area {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+    margin-right: clamp(14px, 0.8vw, 1vw);
+}
+
+#avatar {
+    border-radius: 50%;
+}
+
+#options-dropbox {
+    border: 1px solid #aaaaaa;
+    border-radius: 8px;
+    position: absolute;
+    right: -50%;    
+    background-color: #fff;
+    padding: clamp(6px, 0.8vw, 1vw) clamp(4px, 1vw, 1.3vw);
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    top: 100%;
+    white-space: nowrap;
+    z-index: 1;
+}
+
+.item-options-dropbox {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: clamp(2px, 0.2vw, 0.3vw) clamp(16px, 1vw, 1.6vw);
+}
+
+.item-options-dropbox:hover {
+    border-radius: 8px;
+    background-color: #aaa;
+}
+
+.item-options-dropbox p {
+    font-size: 0.9rem;
+    color: #000;
+    font-family: 'Roboto', sans-serif;
+}
+
+#coins {
+    width: 24px;
+    height: 24px;
+    margin-right: clamp(14px, 0.8vw, 1vw);
+}
+
+#user-coins:hover,
+#user-coins {
+    font-size: clamp(14px, 0.9vw, 2vw);
+    margin-right: 6px;
+    color: coral;
+}
+#icon {
+    width: clamp(26px, 10vw, 96px);
+    height: auto;
+    cursor: pointer;
+}
+#truyen_nhanh {
+    height: clamp(16px, 2vw, 2.4rem);
+    cursor: pointer;
+}
+@media(max-width: 520px) {
+    #search-input {
+        display: none;
+    }
+}
+
+#open-login-dialog {
+    justify-items: center;
+    width: 100%;
+    padding: clamp(8px, 0.8vw, 1.4vw) clamp(12px, 1vw, 1.5vw);
+    border-radius: 12px;
+    color: white;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+    border: 1px solid #aaa;
+    background-image: linear-gradient(to right, rgb(71, 183, 221), rgb(5, 255, 255));
+}
+
+#content {
+    margin-top: 3vw;
+    margin-bottom: 3vw;
+    width: 70%;
+}
+
+@media(max-width: 520px) {
+    #content {
+        width: 95%;
+    }
+}

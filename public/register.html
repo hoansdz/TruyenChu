@@ -1,44 +1,27 @@
-<!DOCTYPE html>
-
-<head>
-    <title>Truyện chữ</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="register.css" />
-    <script type="module" src="register.js"></script>
-</head>
-
-<body>
-    <img src="images/back.png" onclick="window.location.href = 'index.html'" id="back" />
-    <div id="dialog">
-        <div id="dialog-content">
-            <p>
-                Tài khoản của bạn đã đăng ký thành công
-            </p>
-            <p>
-                Vui lòng kiểm tra tài khoản email để xác thực
-            </p>
-        </div>
+<div id="register-content">
+    <p class="center-large-bold">Đăng ký</p>
+    <div class="register-input-container">
+        <input type="email" placeholder="Tên tài khoản" id="register-input-name" />
+        <span id="register-error-name-message"></span>
     </div>
-    <div id="register">
-        <p class="title">Đăng ký</p>
-        <div class="input-container">
-            <input type="email" placeholder="Tên tài khoản" id="input-name" />
-            <span id="error-name-message"></span>
-        </div>
-        <div class="input-container">
-            <input type="email" placeholder="Tài khoản email" id="input-account" />
-            <span id="error-email-message"></span>
-        </div>
-        <div class="input-container">
-            <input type="password" placeholder="Mật khẩu" id="input-password" />
-            <span id="error-password-message"></span>
-        </div>
-        <div class="input-container">
-            <input type="password" placeholder="Nhập lại mật khẩu" id="input-rewrite-password" />
-            <span id="error-rewrite-password-message"></span>
-        </div>
-        <button id="register-button">Đăng kí</button>
-        <p>Bạn đã có tài khoản ? <a id="go-to-login" href="login.html">Đăng nhập</a></p>
+    <div class="register-input-container">
+        <input type="email" placeholder="Tài khoản email" id="register-input-account" />
+        <span id="register-error-email-message"></span>
     </div>
-    
-</body>
+    <div class="register-input-container">
+        <input type="password" placeholder="Mật khẩu" id="register-input-password" />
+        <span id="register-error-password-message"></span>
+    </div>
+    <div class="register-input-container">
+        <input type="password" placeholder="Nhập lại mật khẩu" id="register-input-rewrite-password" />
+        <span id="register-error-rewrite-password-message"></span>
+    </div>
+    <button id="register-button">Đăng kí</button>
+    <div style="display: flex; flex-direction: column; align-items: center;">
+        <p>Bạn chưa có tài khoản ? <span id="register-go-to-login">Đăng nhập</span></p>
+        <p>Hoặc</p>
+        <button id="register-sign-in-with-google">
+            <img class="small-icon" src="images/google.png" alt="google">Đăng nhập bằng google
+        </button>
+    </div>
+</div>

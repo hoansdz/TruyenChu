@@ -1,5 +1,4 @@
 import supabase from './supabase.js';
-import users from './backend/users.js';
 
 function addStory(parent, story) {
     const div = document.createElement('div');
@@ -14,26 +13,12 @@ function addStory(parent, story) {
     div.appendChild(evaluate);
     parent.appendChild(div);
     div.addEventListener('click', () => {
-        window.location.href = `read_story.html?id=${story.id}`;
+        localStorage.setItem('loading_story', JSON.stringify(story));
+        window.appState.onNewPage('story');
     });
 }
-
-document.addEventListener('DOMContentLoaded', async () => {
-    const avatar = document.getElementById('avatar');
-    const optionsDropbox = document.getElementById('options-dropbox');
-    users(async () => {
-        if (!users.isSigned) {
-            document.getElementById('login-promo').style.display = 'block';
-            return;
-        }
-        const { data: { userData }, error } = await supabase.functions.invoke('getPrivateData', {
-            body: {},
-        });
-        document.getElementById('user-coins').textContent = userData.coins ?? 0;
-        if (users.data.avatar_url) {
-            avatar.src = users.data.avatar_url + `?t=${Date.now()}`;
-        }
-    });
+async function onPageLoaded(state) {
+    const emptyStory = document.getElementById('empty');
     const grid = document.getElementById('suggest-grid');
     const { data: { stories }, error: getStoriesError } = await supabase.functions.invoke('getStories', {
         body: {
@@ -47,8 +32,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     for (const story of stories) {
         addStory(grid, story);
     }
-    document.getElementById('empty').style.display = 'none';
-    avatar.addEventListener('click', () => {
-        optionsDropbox.style.display = optionsDropbox.style.display === 'none' ? 'block' : 'none';
-    });
-});
+    emptyStory.style.display = 'none';
+}
+
+export default onPageLoaded;

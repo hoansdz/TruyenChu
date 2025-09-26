@@ -3,67 +3,75 @@
 <head>
     <title>Truyện chữ</title>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="global.css" />
+    <link rel="stylesheet" href="index.css" />
     <link rel="stylesheet" href="main.css" />
-    <script type="module" src="main.js"></script>
+    <link rel="stylesheet" href="login.css" />
+    <link rel="stylesheet" href="register.css" />
+    <link rel="stylesheet" href="user_information.css" />
+    <link rel="stylesheet" href="read_story.css" />
+    <link rel="stylesheet" href="read_chapter.css" />
+    <link rel="stylesheet" href="create_story.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+    <script type="module" src="index.js"></script>
 </head>
 
 <body>
+    <div id="login-dialog">
+
+    </div>
     <nav id="navigator">
         <ul style="flex: 1;">
-            <li><img src="images/icon.png" alt="icon" id="icon" /> <img src="images/truyen_nhanh.png" alt="icon"
-                    id="truyen_nhanh" /></li>
+            <li id="home-navigator-item">
+                <img src="images/icon.png" alt="icon" id="web-icon" />
+                <img src="images/truyen_nhanh.png" alt="icon" id="truyen_nhanh" />
+            </li>
             <li>
                 <div id="search">
-                    <input type="text" placeholder="Nhập tên truyện" />
+                    <input type="text" placeholder="Nhập tên truyện" id="search-input" />
                     <img id="search-icon" src="images/search.png" />
                 </div>
             </li>
-
+            <li>
+                <div id="search-category">
+                    <div id="search-category-area">
+                        <p class="normal-text" id="search-category-text">
+                            Tất cả
+                        </p>
+                        <img src="images/right.png" id="search-category-icon" class="small-icon" alt="seach category" />
+                    </div>
+                    <div id="search-category-dropbox-area">
+                    </div>
+                </div>
+            </li>
         </ul>
         <ul>
-            <li>
+            <li id="coin-item">
                 <p id="user-coins">0</p>
                 <img src="images/coin.png" alt="coins" id="coins">
             </li>
             <li><img src="images/bell.png" alt="notifications" id="notifications"></li>
-            <li><img src="images/user-icon.png" alt="avatar" id="avatar"></li>
+            <li id="avatar-area">
+                <img src="images/user-icon.png" alt="avatar" id="avatar">
+                <div id="options-dropbox"> 
+                    <div id="my-account" class="item-options-dropbox" id="my-account">
+                        <img class="small-icon" src="images/user.png" alt="my account" />
+                        <p>Tài khoản của tôi</p>
+                    </div>
+                    <div id="create-story" class="item-options-dropbox" id="create-story">
+                        <img class="small-icon" src="images/pencil.png" alt="add story" />
+                        <p>Thêm truyện mới</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <p id="open-login-dialog">Đăng nhập</p>
+            </li>
         </ul>
-        <div id="options-dropbox">
-            <div id="my-account" class="item-options-dropbox" onclick="window.location.href = 'user_information.html'">
-                <img src="images/user.png" />
-                <p>Tài khoản của tôi</p>
-            </div>
-            <div id="create-story" class="item-options-dropbox" onclick="window.location.href = 'create_story.html'">
-                <img src="images/pencil.png" />
-                <p>Thêm truyện mới</p>
-            </div>
-        </div>
-    </nav>
 
-    <div id="login-promo">
-        <p>Bạn chưa đăng nhập vui lòng đăng nhập để có thể xem nhiều tính năng hơn</p>
-        <button onclick="window.location.href='login.html'">Đăng nhập</button>
-    </div>
-    <div id="main-content">
-        <div id="filter-suggest">
-            <p>
-                Truyện đề cử
-            </p>
-            <select>
-                <option value="all">Tất cả</option>
-                <option value="ngon-tinh">Ngôn tình</option>
-                <option value="dam-my">Đam mỹ</option>
-                <option value="hai">Hài</option>
-                <option value="kiem-hiep">Kiếm hiệp</option>
-                <option value="tu-tien">Tu tiên</option>
-            </select>
-        </div>
-        <div>
-            <div id="suggest-grid"></div>
-            <p id="empty">
-                Không tìm thấy truyện
-            </p>
-        </div>
+    </nav>
+    <div id="content">
+        
     </div>
     <footer>
         <p>

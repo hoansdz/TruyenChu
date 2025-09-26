@@ -1,208 +1,10 @@
-html {
-    width: 100%;
-    height: 100%;
-}
-
-body {
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    overscroll-behavior-x: none;
-}
-
-#navigator {
-    display: flex;
-    background-color: #5ce1e6;
-    padding: 3vh 2vw;
-    justify-content: space-between;
-}
-
-#navigator ul {
-    list-style: none;
-    display: flex;
-    gap: 3vw;
-    margin: 0;
-}
-
-#navigator li {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    color: rgb(197, 178, 178);
-    font-size: 1.1em;
-    font-family: sans-serif;
-}
-
-#search {
-    display: flex;
-    border: none;
-    border-radius: 12px;
-    background-color: white;
-    padding: 0.6vw 10px;
-    font-family: sans-serif;
-    width: 50vw;
-    max-height: 48px;
-    max-width: 500px;
-    box-sizing: border-box;
-    align-items: center;
-}
-
-#search input {
-    padding: 1.2vw;
-    font-family: sans-serif;
-    background: none;
-    width: 100%;
-    border: none;
-}
-
-#search input:focus {
-    outline: none;
-    background: none;
-    border: none;
-}
-
-/* #navigator button {
-    border: none;
-    border-radius: 6px;
-    background-image: linear-gradient(to bottom right, rgb(11, 229, 229), rgb(21, 204, 143));
-    padding: 1vw;
-    color: rgb(255, 255, 255);
-    cursor: pointer;
-} */
-#notifications,
-#avatar {
-    width: 5vw;
-    max-width: 46px;
-    height: auto;
-    cursor: pointer;
-    margin-right: 1vw;
-}
-
-#avatar {
-    border-radius: 50%;
-}
-
-#options-dropbox {
-    border: 1px solid #aaaaaa;
-    border-radius: 8px;
-    position: absolute;
-    right: 10px;
-    background-color: #fff;
-    margin-top: 6vw;
-    padding: 1vw 1vw;
-    display: none;
-    cursor: pointer;
-}
-
-.item-options-dropbox {
-    display: flex;
-    align-items: center;
-    padding: 0px 1vw;
-}
-
-.item-options-dropbox:hover {
-    border-radius: 8px;
-    background-color: #aaa;
-}
-
-.item-options-dropbox img {
-    width: 2vw;
-    height: 2vw;
-    max-width: 16px;
-    max-height: 16px;
-}
-
-.item-options-dropbox p {
-    font-family: sans-serif;
-    margin-left: 12px;
-}
-
-#search img{
-    width: 3vw;
-    height: auto;
-    max-width: 16px;
-    max-height: 16px;
-    cursor: pointer;
-}
-#coins {
-    width: 2vw;
-    max-width: 24px;
-    max-height: 24px;
-    height: 2vw;
-}
-
-#user-coins:hover,
-#user-coins {
-    margin-right: 6px;
-    color: coral;
-}
-#icon {
-    width: 8vw;
-    max-width: 128px;
-    height: auto;
-    cursor: pointer;
-}
-#truyen_nhanh {
-    height: 6vw;
-    max-height: 48px;
-    height: auto;
-    cursor: pointer;
-}
-@media screen and (max-width: 520px) {
-    #truyen_nhanh {
-        height: 3vw;
-        max-height: 24px;
-        height: auto;
-        cursor: pointer;
-    }
-}
-#navigator li:hover,
-#navigator img:hover {
-    color: white;
-}
-
-#navigator button:hover {
-    background-image: linear-gradient(to bottom right, rgb(21, 204, 143), rgb(11, 229, 229));
-}
-
-#login-promo {
-    padding: 2vw;
-    margin-top: 2vw;
-    margin-left: 1vw;
-    margin-right: 1vw;
-    border-radius: 6px;
-    border: none;
-    display: none;
-    box-shadow: 
-        2px 2px 8px gray,
-        -2px -2px 8px gray;
-}
-
-#login-promo p {
-    font-size: 1.1em;
-    font-family: sans-serif;
-}
-
-#login-promo button {
-    justify-items: center;
-    width: 100%;
-    padding: 1.5vw;
-    border-radius: 6px;
-    color: white;
-    font-size: 1.1em;
-    font-family: sans-serif;
-    cursor: pointer;
-    background-image: linear-gradient(to right, rgb(71, 183, 221), rgb(5, 255, 255));
-}
-
 #main-content {
-    margin: 3vw 4vw;
+    width: 100%;
 }
 
 #filter-suggest p {
     font-size: 1.1em;
-    font-family: sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 700;
 }
 
@@ -226,11 +28,13 @@ body {
 #suggest-grid img {
     width: 100%;
     height: auto;
+    aspect-ratio: 9 / 16;
+    object-fit: contain;
 }
 
 #suggest-grid p {
     font-size: 1.05em;
-    font-family: sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 400;
 }
 
@@ -256,6 +60,7 @@ body {
 footer {
     border-top: 2px solid gray;
     width: 100%;
+    padding: 1vw 0px;
 }
 
 footer p {

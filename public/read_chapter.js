@@ -1,26 +1,19 @@
-import users from './backend/users.js';
 import supabase from './supabase.js';
 
 let story;
 let chapter;
 
-document.addEventListener('DOMContentLoaded', async () => {
-    const params = new URLSearchParams(window.location.search);
-    const storyId = params.get('id');
-    const chapterId = params.get('chapter');
-    const chapterName = document.getElementById('story-name');
-    const chapterTextContent = document.getElementById('text-content');
-    const before = document.getElementById('before');
-    const after = document.getElementById('after');
-    const now = document.getElementById('now');
-    // users(() => {
-    //     if (!users.isSigned) {
-    //         return;
-    //     }
+async function onPageLoaded() {
+    const { storyId, chapterId } = JSON.parse(localStorage.getItem('loading_chapter'));
 
-    // });
+    const chapterName = document.getElementById('rct-story-name');
+    const chapterTextContent = document.getElementById('rct-text-content');
+    const before = document.getElementById('rct-before');
+    const after = document.getElementById('rct-after');
+    const now = document.getElementById('rct-now');
+
     const [
-        { data: { chapters: [chapter] }, error }, 
+        { data: { chapters: [chapter] }, error },
         { data: { story }, error: findStoryError }
     ] = await Promise.all([
         supabase.functions.invoke('getChapters', {
@@ -36,38 +29,57 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         })
     ]);
+
     if (error || findStoryError) {
         alert(findStoryError);
         return;
     }
+
     console.log(chapter);
     chapterName.textContent = `${story.name}`;
-    const {data: {url}} = await supabase.functions.invoke('getChapterContent', {
+
+    const { data: { url } } = await supabase.functions.invoke('getChapterContent', {
         body: {
             story_id: story.id,
             chapter_index: chapter.index
         }
     });
+
     now.textContent = `Chương ${chapter.index}: ${chapter.title}`;
+
     if (chapter.index === 1) {
         before.style.backgroundColor = '#aaa';
     } else {
+        before.style.backgroundColor = 'rgb(42, 255, 255)';
         before.addEventListener('click', () => {
-            window.location.href = `read_chapter.html?id=${story.id}&chapter=${chapter.index - 1}`;
+            localStorage.setItem('loading_chapter', JSON.stringify({
+                storyId: storyId,
+                chapterId: chapterId - 1
+            }));
+            onPageLoaded();
         });
     }
+
     if (chapter.index === story.chapter_number) {
         after.style.backgroundColor = '#aaa';
     } else {
+        after.style.backgroundColor = 'rgb(42, 255, 255)';
         after.addEventListener('click', () => {
-            window.location.href = `read_chapter.html?id=${story.id}&chapter=${chapter.index + 1}`;
+            localStorage.setItem('loading_chapter', JSON.stringify({
+                storyId: storyId,
+                chapterId: chapterId + 1
+            }));
+            onPageLoaded();
         });
     }
+
     try {
         const res = await fetch(url);
         if (!res.ok) throw Error('Không thể tải vui lòng thử lại');
         const text = await res.text();
         chapterTextContent.innerText = text;
     }
-    catch (e){}
-});
+    catch (e) { }
+}
+
+export default onPageLoaded;

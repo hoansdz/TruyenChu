@@ -1,43 +1,19 @@
-html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-}
-
-#back {
-    width: 32px;
-    position: absolute;
-    padding: 4vw;
-    cursor: pointer;
-}
-
-#login {
-    padding: 6vw 12vw;
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-    align-items: center;
+#login-content {
+    background-color: white;
+    border-radius: 12px;
+    border: 1px solid #aaa;
+    aspect-ratio: 11 / 12;
+    height: 75vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* border-radius: 8px;
-    box-shadow:
-        4px 4px 6px rgb(189, 189, 189),
-        -4px -4px 6px rgb(199, 199, 199); */
+    align-items: center;
+    gap: clamp(8px, 2vh, 3vh);
 }
-
-/* @media screen and (min-width: 620px) {
-    #login {
-        width: 520px;
-    }
-} */
 
 .input-container {
     position: relative;
-    width: 100%;
-    margin-bottom: 2vw;
+    width: 80%;
 }
 
 #error-password-message,
@@ -51,39 +27,40 @@ html, body {
     font-size: 0.9em;
 }
 
-.title {
-    font-size: 1.2em;
-    font-family: sans-serif;
-    font-weight: 500;
-    text-align: center;
-}
-
 #input-account,
 #input-password {
     width: 100%;
-    padding: 2vw 3vw;
+    padding: clamp(12px, 0.9vw, 1.5vw) clamp(12px, 1.2vw, 1.5vw);
     border-radius: 6px;
     box-sizing: border-box;
 }
 
 #input-password {
-    margin-top: 3vw;
+    margin-top: max(8px, 0.8vw);
 }
 
 #login-button {
     border-radius: 8px;
     border: none;
-    width: 100%;
-    margin-top: 3vw;
-    padding: 3vw 3vw;
+    width: 80%;
+    margin-top: max(8px, 0.8vw);
+    padding: clamp(16px, 1.1vw, 1.5vw) clamp(12px, 1.2vw, 1.5vw);
     cursor: pointer;
     background-image: linear-gradient(to right, aqua, lightblue);
 }
 
-#go-to-register,
-#go-to-register:visited,
-#go-to-register:hover,
-#go-to-register:active {
-    color: skyblue;
-    text-decoration: none;
+#go-to-register {
+    color: aqua;
+    cursor: pointer;
+}
+
+#sign-in-with-google {
+    border: 1px solid #aaa;
+    border-radius: 8px;
+    padding: clamp(12px, 0.8vw, 1.1vw) clamp(12px, 1.2vw, 1.5vw);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    background-color: rgb(248, 248, 248);
 }

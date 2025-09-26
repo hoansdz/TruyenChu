@@ -1,8 +1,8 @@
 import supabase from "./supabase.js";
-import users from "./backend/users.js";
 
 var selectingStory = null;
 let creatingChapter = false;
+let isLogoutClicked = false;
 
 function addStory(parent, storyOptionMenu, story) {
     const main = document.createElement('div');
@@ -70,28 +70,38 @@ function loadChapterDialog(dialog) {
     });
 }
 
-document.addEventListener('DOMContentLoaded', async () => {
-    const avatar = document.getElementById('avatar');
+async function onPageLoaded() {
+    const navigatorAvatar = document.getElementById('avatar');
+    const avatar = document.getElementById('user-avatar');
     const inputAvatar = document.getElementById('input-avatar');
     const stories = document.getElementById('stories');
     const emptyStory = document.getElementById('empty-story');
     const storyOptionMenu = document.getElementById('story-option-menu');
-    users(async () => {
-        if (!users.isSigned) {
+    const logout = document.getElementById('logout');
+    const userCreatedAt = document.getElementById('user-created-at');
+    const userName = document.getElementById('user-name');
+    const userEmail = document.getElementById('user-email');
+    window.appState.users(async () => {
+        if (!window.appState.users.isSigned) {
             window.location.href = 'login.html';
             return;
         }
-        console.log(users.data);
-        document.getElementById('user-created-at').textContent = isoStringToReadableString(users.data.created_at);
-        document.getElementById('user-name').textContent = users.data.name;
-        document.getElementById('user-email').textContent = users.email;
-        if (users.data.avatar_url !== null) {
-            document.getElementById('avatar').src = users.data.avatar_url + `?t=${Date.now()}`;
+        if (window.appState.users.data.created_at !== window.appState.users.cache.created_at) {
+            userCreatedAt.textContent = isoStringToReadableString(window.appState.users.data.created_at);
         }
-        if (users.data.stories.length !== 0) {
+        if (window.appState.users.data.name !== window.appState.users.cache.name) {
+            userName.textContent = window.appState.users.data.name;
+        }
+        if (window.appState.users.data.email !== window.appState.users.cache.email) {
+            userEmail.textContent = window.appState.users.data.email;
+        }
+        if (window.appState.users.data.avatar_url !== window.appState.users.cache.avatar_url) {
+            avatar.src = window.appState.users.data.avatar_url + `?t=${Date.now()}`;
+        }
+        if (window.appState.users.data.stories.length !== 0) {
             emptyStory.style.display = 'none';
         }
-        users.data.stories.forEach(id => {
+        window.appState.users.data.stories.forEach(id => {
             supabase.functions.invoke('getStory', {
                 body: {
                     id: id
@@ -104,6 +114,17 @@ document.addEventListener('DOMContentLoaded', async () => {
                 addStory(stories, storyOptionMenu, story);
             });
         });
+    }, (cache) => {
+        if (!window.appState.users.isSigned) {
+            window.location.href = 'login.html';
+            return;
+        }
+        userCreatedAt.textContent = isoStringToReadableString(cache.created_at);
+        userName.textContent = cache.name;
+        userEmail.textContent = cache.email;
+        if (cache.avatar_url) {
+            avatar.src = cache.avatar_url + `?t=${Date.now()}`;
+        }
     });
     const addChapterOption = document.getElementById('add-chapter-option');
     const addChapterDialog = document.getElementById('add-chapter-menu');
@@ -115,14 +136,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     inputAvatar.addEventListener('change', async (e) => {
         const file = e.target.files[0];
         console.log(e.target.files)
-        if (!file || !users.isSigned) return;
+        if (!file || !window.appState.users.isSigned) return;
         if (file) {
             const formData = new FormData();
             formData.append('file', file);
-            console.log(`Bearer ${users.session}`);
+            console.log(`Bearer ${window.appState.users.data.session}`);
             const res = await fetch('https://cjjyrcdasvkchicimbjv.supabase.co/functions/v1/updateAvatar', {
                 method: 'POST',
-                headers: { Authorization: `Bearer ${users.session}` },
+                headers: { Authorization: `Bearer ${window.appState.users.data.session}` },
                 body: formData
             });
             const { state, message, url } = await res.json();
@@ -130,11 +151,17 @@ document.addEventListener('DOMContentLoaded', async () => {
                 alert(message ?? 'Ưtf');
                 return;
             }
-
             avatar.src = url + `?t=${Date.now()}`;
+            navigatorAvatar.src = url + `?t=${Date.now()}`;
         }
     });
-});
+    logout.addEventListener('click', async () => {
+        if (isLogoutClicked) return;
+        isLogoutClicked = true;
+        await supabase.auth.signOut();
+        window.location.href = 'index.html';
+    });
+}
 
 function isoStringToReadableString(isoString) {
     return new Date(isoString).toLocaleString('vi-VN', {
@@ -145,3 +172,5 @@ function isoStringToReadableString(isoString) {
         minute: '2-digit'
     }).replace('lúc', 'Lúc');
 }
+
+export default onPageLoaded;
