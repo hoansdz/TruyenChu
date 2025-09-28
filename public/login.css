@@ -4,11 +4,12 @@
     border: 1px solid #aaa;
     aspect-ratio: 11 / 12;
     height: 75vh;
+    max-width: 95vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: clamp(8px, 2vh, 3vh);
+    gap: clamp(8px, 1vh, 2vh) 0px;
 }
 
 .input-container {

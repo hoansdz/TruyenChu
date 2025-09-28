@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="read_story.css" />
     <link rel="stylesheet" href="read_chapter.css" />
     <link rel="stylesheet" href="create_story.css" />
+    <link rel="stylesheet" href="manage_story.css" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
     <script type="module" src="index.js"></script>
 </head>
@@ -20,8 +21,9 @@
     <div id="login-dialog">
 
     </div>
-    <nav id="navigator">
+    <nav id="navigator" class="nav-responsive">
         <ul style="flex: 1;">
+            <li><img src="images/menu.png" class="normal-icon" id="nav-menu" /></li>
             <li id="home-navigator-item">
                 <img src="images/icon.png" alt="icon" id="web-icon" />
                 <img src="images/truyen_nhanh.png" alt="icon" id="truyen_nhanh" />
@@ -46,14 +48,14 @@
             </li>
         </ul>
         <ul>
-            <li id="coin-item">
+            <li id="coin-item-area">
                 <p id="user-coins">0</p>
-                <img src="images/coin.png" alt="coins" id="coins">
+                <img src="images/coin.png" alt="coins" class="normal-icon">
             </li>
-            <li><img src="images/bell.png" alt="notifications" id="notifications"></li>
+            <li><img src="images/bell.png" alt="notifications" class="normal-icon" id="notifications"></li>
             <li id="avatar-area">
-                <img src="images/user-icon.png" alt="avatar" id="avatar">
-                <div id="options-dropbox"> 
+                <img src="images/user-icon.png" alt="avatar" id="avatar" class="normal-icon">
+                <div id="options-dropbox">
                     <div id="my-account" class="item-options-dropbox" id="my-account">
                         <img class="small-icon" src="images/user.png" alt="my account" />
                         <p>Tài khoản của tôi</p>
@@ -61,6 +63,10 @@
                     <div id="create-story" class="item-options-dropbox" id="create-story">
                         <img class="small-icon" src="images/pencil.png" alt="add story" />
                         <p>Thêm truyện mới</p>
+                    </div>
+                    <div id="my-story" class="item-options-dropbox" id="my-story">
+                        <img class="small-icon" src="images/book.png" alt="manage story" />
+                        <p>Quản lý truyện</p>
                     </div>
                 </div>
             </li>
@@ -71,7 +77,7 @@
 
     </nav>
     <div id="content">
-        
+
     </div>
     <footer>
         <p>

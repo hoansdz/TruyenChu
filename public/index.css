@@ -29,15 +29,16 @@ body {
     display: flex;
     width: 100%;
     background-color: #5ce1e6;
-    padding: clamp(8px, 0.4vw, 0.8vw) clamp(12px, 0.6vw, 1vw);
+    padding: clamp(8px, 0.4vw, 0.8vw) 0px;
     justify-content: space-between;
     box-sizing: border-box;
+    margin: 0;
 }
 
 #navigator ul {
     list-style: none;
     display: flex;
-    gap: clamp(8px, 0.4vw, 0.8vw) clamp(12px, 0.6vw, 1vw);
+    gap: clamp(8px, 0.4vw, 16px) clamp(18px, 1vw, 48px);
     margin: 0;
 }
 
@@ -48,6 +49,11 @@ body {
     color: rgb(197, 178, 178);
     font-size: 0.9rem;
     font-family: 'Roboto', sans-serif;
+}
+
+#nav-menu {
+    cursor: pointer;
+    display: none;
 }
 
 #search {
@@ -95,12 +101,15 @@ body {
 #search-category-area {
     display: flex;
     align-items: center;
-    padding: 0px clamp(8px, 0.8vw, 1vw);
+    padding: clamp(3px, 0.6vw, 8px) clamp(8px, 0.8vw, 1vw);
+    margin: 0;
     gap: 4px;
 }
 
 #search-category-text {
     color: black;
+    margin: 0;
+    padding: 0;
 }
 
 #search-category:hover {
@@ -154,15 +163,10 @@ body {
 }
 
 #notifications {
-    width: clamp(16px, 2vw, 4vw);
-    height: auto;
     cursor: pointer;
-    margin-right: clamp(14px, 0.8vw, 1vw);
 }
 
 #avatar {
-    width: clamp(16px, 2vw, 4vw);
-    height: auto;
     cursor: pointer;
 }
 
@@ -171,7 +175,6 @@ body {
     flex-direction: column;
     position: relative;
     justify-content: center;
-    margin-right: clamp(14px, 0.8vw, 1vw);
 }
 
 #avatar {
@@ -184,7 +187,7 @@ body {
     position: absolute;
     right: -50%;    
     background-color: #fff;
-    padding: clamp(6px, 0.8vw, 1vw) clamp(4px, 1vw, 1.3vw);
+    padding: clamp(6px, 0.8vw, 1vw) clamp(6px, 0.5vw, 14px);
     display: none;
     flex-direction: column;
     cursor: pointer;
@@ -197,7 +200,7 @@ body {
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: clamp(2px, 0.2vw, 0.3vw) clamp(16px, 1vw, 1.6vw);
+    padding: clamp(2px, 0.2vw, 0.3vw) clamp(18px, 3vw, 64px);
 }
 
 .item-options-dropbox:hover {
@@ -214,13 +217,11 @@ body {
 #coins {
     width: 24px;
     height: 24px;
-    margin-right: clamp(14px, 0.8vw, 1vw);
 }
 
 #user-coins:hover,
 #user-coins {
     font-size: clamp(14px, 0.9vw, 2vw);
-    margin-right: 6px;
     color: coral;
 }
 #icon {
@@ -232,10 +233,33 @@ body {
     height: clamp(16px, 2vw, 2.4rem);
     cursor: pointer;
 }
-@media(max-width: 520px) {
+
+@media(max-width: 600px) {
+    #search {
+        background-color: transparent;
+    }
+
+    #coin-item-area {
+        display: none !important;
+    }
+
+    #search-category,
     #search-input {
         display: none;
     }
+
+    #nav-menu {
+        display: inline;
+    }
+
+    #navigator ul.show #search-category {
+        display: flex;
+    }
+}
+
+.nav-responsive #search-category {
+    float: left;
+    position: absolute;
 }
 
 #open-login-dialog {
@@ -254,11 +278,6 @@ body {
 #content {
     margin-top: 3vw;
     margin-bottom: 3vw;
-    width: 70%;
-}
-
-@media(max-width: 520px) {
-    #content {
-        width: 95%;
-    }
+    flex: 1;
+    width: clamp(85vw, calc(95vw - (10 * (100vw - 420px) / 300)), 95vw);
 }

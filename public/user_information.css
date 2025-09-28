@@ -9,95 +9,6 @@
     align-items: center;
 }
 
-#user-information-content #story-option-menu {
-    padding: 2px 16px;
-    border-radius: 6px;
-    border: 1px solid #aaa;
-    background-color: #fff;
-    display: none;
-    position: absolute;
-    flex-direction: column;
-}
-
-#user-information-content .story-option {
-    display: flex;
-    gap: 8px;
-    width: 100%;
-    cursor: pointer;
-    align-items: center;
-}
-
-#user-information-content .story-option img {
-    width: 1vw;
-    max-width: 12px;
-    height: 1vw;
-    max-height: 12px;
-}
-
-#user-information-content .story-option p {
-    color: #676767;
-}
-
-#user-information-content #add-chapter-menu {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.3);
-    z-index: 1;
-    display: none;
-    justify-content: center;
-    align-items: center;
-}
-
-#user-information-content #chapter-menu-content {
-    padding: 2vw 4vw;
-    border-radius: 12px;
-    background-color: #aaa;
-    background-color: white;
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    gap: 1vw;
-    height: 60vh;
-}
-
-#user-information-content #chapter-title {
-    padding: 1vw 2vw;
-    border-radius: 8px;
-    border: 1px solid #aaa;
-    font-family: sans-serif;
-    width: 40vw;
-}
-
-#user-information-content #chapter-text-content {
-    padding: 1vw 2vw;
-    border-radius: 8px;
-    border: 1px solid #aaa;
-    font-family: sans-serif;
-    flex: 1;
-}
-
-#user-information-content #chapter-menu-cancel,
-#user-information-content #chapter-menu-add {
-    padding: 1vw 2vw;
-    border-radius: 8px;
-    border: 1px solid #aaa;
-    cursor: pointer;
-}
-
-#user-information-content #chapter-menu-add {
-    background: linear-gradient(to right, #39e1e9, #9ce4f8);
-    color: black;
-}
-
-#user-information-content #back {
-    width: 32px;
-    position: absolute;
-    cursor: pointer;
-    top: 2vw;
-    left: 2vw;
-}
-
 #user-information-content #avatar-area {
     margin-top: 1vw;
     width: 10vw;
@@ -151,41 +62,6 @@
 #user-information-content .input-box p {
     font-family: sans-serif;
     font-size: 1.1em;
-}
-
-#user-information-content #empty-story {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 4vw;
-    font-size: 1.1rem;
-    font-family: sans-serif;
-}
-
-#user-information-content .story {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-}
-
-#user-information-content .story input {
-    transform: scale(1.5);
-}
-
-#user-information-content .story p {
-    font-family: sans-serif;
-    font-size: 1.1rem;
-}
-
-#user-information-content .story div {
-    display: flex;
-    gap: 8px;
-}
-
-#user-information-content .story img {
-    width: 2vw;
-    max-width: 24px;
 }
 
 #user-information-content #logout {

@@ -58,6 +58,10 @@ async function loadNavigator() {
         window.appState.onNewPage('create-story');
         optionsDropbox.style.display = 'none';
     });
+    document.getElementById('my-story').addEventListener('click', () => {
+        window.appState.onNewPage('manage-story');
+        optionsDropbox.style.display = 'none';
+    });
     optionsDropbox.style.display = 'none';
     avatar.addEventListener('click', () => {
         optionsDropbox.style.display = optionsDropbox.style.display === 'none' ? 'flex' : 'none';
@@ -104,6 +108,11 @@ async function loadNavigator() {
         if (e.target !== loginDialog) return;
         loginDialog.style.display = 'none';
         loginDialog.innerHTML = '';
+    });
+    document.addEventListener('click', (e) => {
+        if (optionsDropbox.style.display === 'flex' && e.target !== optionsDropbox && e.target !== avatar) {
+            optionsDropbox.style.display = 'none';
+        }
     });
 }
 

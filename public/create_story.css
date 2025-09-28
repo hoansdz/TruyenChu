@@ -1,13 +1,5 @@
-.error {
-    font-size: 1em;
-    font-family: sans-serif;
-    color: red;
-    font-weight: 300;
-}
-
 #ct-create-story-content {
     margin-top: 4vw;
-    padding: 2vw 3vw;
     width: 100%;
     display: flex;
     flex-direction: column;

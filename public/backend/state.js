@@ -3,6 +3,7 @@ import UserInformationOnPageLoaded from '../user_information.js';
 import ReadStoryOnPageLoaded from '../read_story.js';
 import CreateStoryOnPageLoaded from '../create_story.js';
 import ReadChapterOnPageLoaded from '../read_chapter.js';
+import ManageStoriesOnPageLoaded from '../manage_story.js';
 
 async function loadPage(content, name, loadFunction) {
     const res = await fetch(name);
@@ -31,6 +32,10 @@ async function onNewPage(content) {
         }
         case 'read-chapter': {
             loadPage(content, './read_chapter.html', ReadChapterOnPageLoaded);
+            break;
+        }
+        case 'manage-story': {
+            loadPage(content, './manage_story.html', ManageStoriesOnPageLoaded);
             break;
         }
     }
